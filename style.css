@@ -1,8 +1,6 @@
 
 body{
     background: url(assets/images/bg.png);
-    
-    background-size:cover;
     background-attachment: fixed;
     font-family: Poppins;
     font-style: normal;
