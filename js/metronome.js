@@ -11,6 +11,7 @@ console.log(beatCycle1);
 
 
 var dha = new Audio('assets/audio/dha.wav');
+var dha2 = new Audio('assets/audio/dha2.wav');
 var dhi = new Audio('assets/audio/dhi.wav');
 var dhin = new Audio('assets/audio/dhin.wav');
 var ge = new Audio('assets/audio/ge.wav');
@@ -112,6 +113,18 @@ function playing(){
         audio.src = playlist[i];
         audio.play();
         document.getElementById("visual_style").innerHTML="The Current Playing style is Jhatpal" ;
+        loop();
+    }  
+    else if(x==3){
+        playlist.length = 0;
+        clearInterval(t);
+        audio = new Audio(),
+        playlist = new Array('assets/audio/tin.wav','assets/audio/tin.wav','assets/audio/dha2.wav','');
+        audio.volume = 1.0;
+        audio.loop = false;
+        audio.src = playlist[i];
+        audio.play();
+        document.getElementById("visual_style").innerHTML="The Current Playing style is Kartaal" ;
         loop();
     }   
 }
