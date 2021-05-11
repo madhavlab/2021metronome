@@ -9,6 +9,7 @@ beatCycle.push(beatCycle3);
 
 console.log(beatCycle1);
 
+//loading of Audio Files
 
 var dha = new Audio('assets/audio/dha.wav');
 var dha2 = new Audio('assets/audio/dha2.wav');
@@ -19,6 +20,40 @@ var ka = new Audio('assets/audio/ka.wav');
 var na = new Audio('assets/audio/na.wav');
 var ti = new Audio('assets/audio/ti.wav');
 var tin = new Audio('assets/audio/tin.wav');
+var blnk ;
+
+var dha_max =  0.027;
+var dha2_max = 0;
+var dhi_max = 0.048;
+var dhin_max = 0.014;
+var ge_max = 0.041;
+var ka_max = 0.033;
+var na_max = 0.04;
+var ti_max = 0.026;
+var tin_max = 0.016;
+var blnk_max = 0;
+
+//Assigning pattern for each style as a array
+var beatCycle1 = [[ti],[ti,ti],[na],[dhi],[na],[dhi],[na]];
+var beatCycle2 = [[dha],[ge],[na],[ti],[na],[ka],[dha],[na]];
+var beatCycle3 = [[dhi],[na],[dhi],[dhi],[na],[ti],[na],[dhi],[dhi],[na]];
+var beatCycle4 = [[tin],[tin],[dha2],[blnk]]
+var beatCycle = [];
+beatCycle.push(beatCycle1);
+beatCycle.push(beatCycle2);
+beatCycle.push(beatCycle3);
+beatCycle.push(beatCycle4);
+console.log(beatCycle1);
+
+var max1 = [ti_max,ti_max,na_max,dhi_max,na_max,dhi_max,na_max];
+var max2 = [dha_max,ge_max,na_max,ti_max,na_max,ka_max,dha_max,na_max];
+var max3 = [dhi_max,na_max,dhi_max,dhi_max,na_max,ti_max,na_max,dhi_max,dhi_max,na_max];
+var max4 = [tin_max,tin_max,dha2_max,blnk_max];
+var max = [];
+max.push(max1);
+max.push(max2);
+max.push(max3);
+max.push(max4);
 
 var x=0;
 var bpm = 100;
@@ -79,54 +114,21 @@ var playlist = [];
 var i =0;
 
 function playing(){
-    if(x==0){
-        clearInterval(t);
-        audio = new Audio(),
-        playlist = new Array('assets/audio/ti.wav','assets/audio/ti.wav','assets/audio/na.wav','assets/audio/dhi.wav','assets/audio/na.wav','assets/audio/dhi.wav','assets/audio/na.wav');
+    clearInterval(t);
+    audio = new Audio(),
+    playlist = beatCycle[x]
+    if(playlist[i][0]!=blnk){
         audio.volume = 1.0;
         audio.loop = false;
-        audio.src = playlist[i];
+        audio= playlist[i][0];
         audio.play();
-        document.getElementById("visual_style").innerHTML="The Current Playing style is Rupak" ;
-        loop();   
     }
-    else if(x==1){
-        playlist.length = 0;
-        clearInterval(t);
-        audio = new Audio(),
-        playlist = new Array('assets/audio/dha.wav','assets/audio/ge.wav','assets/audio/na.wav','assets/audio/ti.wav','assets/audio/na.wav','assets/audio/ka.wav','assets/audio/dhi.wav','assets/audio/na.wav');
-        audio.volume = 1.0;
-        audio.loop = false;
-        audio.src = playlist[i];
-        audio.play();
-        document.getElementById("visual_style").innerHTML="The Current Playing style is Kherwa" ;
-        loop();
-        
-    }
-    else if(x==2){
-        playlist.length = 0;
-        clearInterval(t);
-        audio = new Audio(),
-        playlist = new Array('assets/audio/dhi.wav','assets/audio/na.wav','assets/audio/dhi.wav','assets/audio/dhi.wav','assets/audio/na.wav','assets/audio/ti.wav','assets/audio/na.wav','assets/audio/dhi.wav','assets/audio/dhi.wav','assets/audio/na.wav');
-        audio.volume = 1.0;
-        audio.loop = false;
-        audio.src = playlist[i];
-        audio.play();
-        document.getElementById("visual_style").innerHTML="The Current Playing style is Jhatpal" ;
-        loop();
-    }  
-    else if(x==3){
-        playlist.length = 0;
-        clearInterval(t);
-        audio = new Audio(),
-        playlist = new Array('assets/audio/tin.wav','assets/audio/tin.wav','assets/audio/dha2.wav','');
-        audio.volume = 1.0;
-        audio.loop = false;
-        audio.src = playlist[i];
-        audio.play();
-        document.getElementById("visual_style").innerHTML="The Current Playing style is Kartaal" ;
-        loop();
-    }   
+    if(x==0)document.getElementById("visual_style").innerHTML="The Current Playing style is Rupak" ;
+    if(x==1)document.getElementById("visual_style").innerHTML="The Current Playing style is Kherwa" ;
+    if(x==2)document.getElementById("visual_style").innerHTML="The Current Playing style is Jhatpal" ;
+    if(x==3)document.getElementById("visual_style").innerHTML="The Current Playing style is Kartaal" ;
+    loop(); 
+     
 }
 
 
@@ -144,8 +146,7 @@ function loop(){
         console.log(bpm);
     }
     console.log(i);
-   
-     t = setInterval(playing,60*1000/bpm);
+     t = setInterval(playing,60*1000/bpm -max[x][i]+max[x][j-1]);
 }
 
 function reset(){
