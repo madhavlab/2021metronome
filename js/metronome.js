@@ -146,7 +146,7 @@ function loop(){
         console.log(bpm);
     }
     console.log(i);
-     t = setInterval(playing,60*1000/bpm -max[x][i]+max[x][j-1]);
+     t = setInterval(playing,60*1000/bpm -(max[x][i]-max[x][j-1])*1000);
 }
 
 function reset(){
