@@ -1,43 +1,95 @@
-var beatCycle1 = [['ti'],['ti','ti'],['na'],['dhi'],['na'],['dhi'],['na']];
-var beatCycle2 = [['dha'],['ge'],['na'],['ti'],['na'],['ka'],['dhi'],['na']];
-var beatCycle3 = [['dhi'],['na'],['dhi'],['dhi'],['na'],['ti'],['na'],['dhi'],['dhi'],['na']];
-
-var beatCycle = [];
-beatCycle.push(beatCycle1);
-beatCycle.push(beatCycle2);
-beatCycle.push(beatCycle3);
-
-console.log(beatCycle1);
-
-//loading of Audio Files
-
 var dha = new Audio('assets/audio/dha.wav');
+var dha0 = new Audio('assets/audio/dha.wav');
 var dha2 = new Audio('assets/audio/dha2.wav');
 var dhi = new Audio('assets/audio/dhi.wav');
+var dhi0 = new Audio('assets/audio/dhi.wav');
 var dhin = new Audio('assets/audio/dhin.wav');
 var ge = new Audio('assets/audio/ge.wav');
 var ka = new Audio('assets/audio/ka.wav');
 var na = new Audio('assets/audio/na.wav');
 var ti = new Audio('assets/audio/ti.wav');
 var tin = new Audio('assets/audio/tin.wav');
-var blnk ;
+var tin0 = new Audio('assets/audio/tin.wav');
+var blnk =new Audio('assets/audio/dhin.wav');
 
-var dha_max =  0.027;
-var dha2_max = 0;
-var dhi_max = 0.048;
-var dhin_max = 0.014;
-var ge_max = 0.041;
-var ka_max = 0.033;
-var na_max = 0.04;
-var ti_max = 0.026;
-var tin_max = 0.016;
-var blnk_max = 0;
+//console.log(beat.length);
+var transcyc=[[tin,tin0],[dha,dha0],[tin,tin0],[dha,dha0]];
 
-//Assigning pattern for each style as a array
-var beatCycle1 = [[ti],[ti,ti],[na],[dhi],[na],[dhi],[na]];
+var beatCycle1 = [[ti],[tin],[tin0],[na],[dhi],[na],[dhi],[na]];
+var beatCycle1t = [1,2,2,1,1,1,1,1]; //This array signifies the relative rate at which beats will need to play
+var tran1a=[[dha],[dha0],[tin],[tin],[dha],[dha0],[dhi],[na],[dhi],[na]];
+var tran1at= [2,2,2,2,2,2,1,1,1,1];
+var tran1b=[[ti],[tin],[tin],[na],[dhi],[na],[dhi],[tin],[tin]];
+var tran1bt= [1,2,2,1,1,1,1,2,2];
+var tran1c=[[dha],[dha0],[tin],[tin0],[dha],[dha0],[dhi],[na],[dhi],[tin],[tin0]];
+var tran1ct= [2,2,2,2,2,2,1,1,1,2,2];
+
 var beatCycle2 = [[dha],[ge],[na],[ti],[na],[ka],[dha],[na]];
-var beatCycle3 = [[dhi],[na],[dhi],[dhi],[na],[ti],[na],[dhi],[dhi],[na]];
-var beatCycle4 = [[tin],[tin],[dha2],[blnk]]
+var beatCycle2t = [1,1,1,1,1,1,1,1];
+var tran2a=[[dha],[dha0],[tin],[tin0],[dha],[dha0],[ti],[na],[ka],[dha],[na]];
+var tran2at= [2,2,2,2,2,2,1,1,1,1,1];
+var tran2b=[[dha],[ge],[na],[ti],[na],[ka],[dha],[tin],[tin0]];
+var tran2bt= [1,1,1,1,1,1,1,2,2];
+var tran2c=[[dha],[dha0],[tin],[tin0],[dha],[dha0],[ti],[na],[ka],[dha],[tin],[tin0]];
+var tran2ct= [2,2,2,2,2,2,1,1,1,1,2,2];
+
+var beatCycle3 = [[dhi],[na],[dhi],[dhi0],[na],[ti],[na],[dhi],[dhi0],[na]];
+var beatCycle3t = [1,1,1,1,1,1,1,1,1,1];
+var tran3a=[[dha],[dha0],[tin],[tin0],[dha],[dha0],[dhi],[na],[ti],[na],[dhi],[dhi0],[na]];
+var tran3at= [2,2,2,2,2,2,1,1,1,1,1,1,1];
+var tran3b=[[dhi],[na],[dhi],[dhi0],[na],[ti],[na],[dhi],[dhi0],[tin],[tin0]];
+var tran3bt= [1,1,1,1,1,1,1,1,1,2,2];
+var tran3c=[[dha],[dha0],[tin],[tin0],[dha],[dha0],[dhi],[na],[ti],[na],[dhi],[dhi0],[tin],[tin0]];
+var tran3ct= [2,2,2,2,2,2,1,1,1,1,1,1,2,2];
+
+var beatCycle4 = [[tin],[tin0],[dha],[blnk]];
+var beatCycle4t = [1,1,1,1];
+var tran4a=[[dha],[dha0],[tin],[tin0],[dha],[dha0],[blnk]];
+var tran4at= [2,2,2,2,2,2,1];
+var tran4b=[[tin],[tin0],[dha],[tin],[tin]];
+var tran4bt= [1,1,1,2,2];
+var tran4c=[[dha],[dha0],[tin],[tin0],[dha],[dha0],[tin],[tin]];
+var tran4ct= [2,2,2,2,2,2,2,2];
+
+var trana=[];
+var tranat=[];
+var tranb=[];
+var tranbt=[];
+var tranc=[];
+var tranct=[];
+
+trana.push(tran1a);
+trana.push(tran2a);
+trana.push(tran3a);
+trana.push(tran4a);
+tranat.push(tran1at);
+tranat.push(tran2at);
+tranat.push(tran3at);
+tranat.push(tran4at);
+
+tranb.push(tran1b);
+tranb.push(tran2b);
+tranb.push(tran3b);
+tranb.push(tran4b);
+tranbt.push(tran1bt);
+tranbt.push(tran2bt);
+tranbt.push(tran3bt);
+tranbt.push(tran4bt);
+
+tranc.push(tran1c);
+tranc.push(tran2c);
+tranc.push(tran3c);
+tranc.push(tran4c);
+tranct.push(tran1ct);
+tranct.push(tran2ct);
+tranct.push(tran3ct);
+tranct.push(tran4ct);
+
+
+var cnt=[7,8,10,4];
+var mx=7;
+var temp=0;
+
 var beatCycle = [];
 beatCycle.push(beatCycle1);
 beatCycle.push(beatCycle2);
@@ -45,22 +97,41 @@ beatCycle.push(beatCycle3);
 beatCycle.push(beatCycle4);
 console.log(beatCycle1);
 
-var max1 = [ti_max,ti_max,na_max,dhi_max,na_max,dhi_max,na_max];
-var max2 = [dha_max,ge_max,na_max,ti_max,na_max,ka_max,dha_max,na_max];
-var max3 = [dhi_max,na_max,dhi_max,dhi_max,na_max,ti_max,na_max,dhi_max,dhi_max,na_max];
-var max4 = [tin_max,tin_max,dha2_max,blnk_max];
-var max = [];
-max.push(max1);
-max.push(max2);
-max.push(max3);
-max.push(max4);
+var beatCyclet=[];
+beatCyclet.push(beatCycle1t);
+beatCyclet.push(beatCycle2t);
+beatCyclet.push(beatCycle3t);
+beatCyclet.push(beatCycle4t);
+
 
 var x=0;
 var bpm = 100;
+var bpmcurr=bpm;
 var bpm_velocity=0;
 var flag =0;
+var tapbut=0;
+var tapcyc=0;
+var tp=0;
 
+var audio;
+var t;
+var playlist=[];
+var playlistt=[];
+var beat=[];
+var i =0;
 
+var dict={}
+dict[ti]=0.026;
+dict[tin]=0.016;
+dict[tin0]=0.016;
+dict[dha]=0.027;
+dict[dha0]=0.027;
+dict[na]=0.04;
+dict[dhi]=0.048;
+dict[dhi0]=0.048;
+dict[ge]=0.041;
+dict[ka]=0.033;
+dict[blnk]=0.014;
 function bpmvel(){
     bpm_velocity = parseInt(document.getElementById("bpm_velo").value);
 }
@@ -82,10 +153,10 @@ function plus1(){
 function stylechange(){
     x=document.getElementById("style").value;
     console.log(x);
-    i=0;
-    if(flag==1){
-        playing();
-    }
+    // i=0;
+    // if(flag==1){
+    //     playing();
+    // }
 }
 
 function toggle(){
@@ -108,45 +179,92 @@ function toggle(){
 
 }
 
-var audio;
-var t;
-var playlist = [];
-var i =0;
 
-function playing(){
-    clearInterval(t);
-    audio = new Audio(),
-    playlist = beatCycle[x]
-    if(playlist[i][0]!=blnk){
-        audio.volume = 1.0;
-        audio.loop = false;
-        audio= playlist[i][0];
-        audio.play();
+function addcycle(){
+
+    k=0;
+    mx=cnt[x];
+    if(tapbut==1){
+        tapcyc++;
     }
+
+    if(tapbut==2){
+        tp++;
+        tp=tp%tapcyc;
+        if(tapcyc<=1){
+            playlist = playlist.concat(tranc[x]);
+            playlistt= playlistt.concat(tranct[x]);
+            return;
+        }
+        if(tp==0){
+            playlist = playlist.concat(trana[x]);
+            playlistt= playlistt.concat(tranat[x]);
+            return;
+        }
+        if(tp==tapcyc-1){
+            playlist = playlist.concat(tranb[x]);
+            playlistt= playlistt.concat(tranbt[x]);
+            return;
+        }
+        
+    }
+
+    
+    
+    playlist = playlist.concat(beatCycle[x]);
+    playlistt=playlistt.concat(beatCyclet[x]);
+    
+    
+    
+}
+var k=1;
+function playing(){
+    
     if(x==0)document.getElementById("visual_style").innerHTML="The Current Playing style is Rupak" ;
-    if(x==1)document.getElementById("visual_style").innerHTML="The Current Playing style is Kherwa" ;
-    if(x==2)document.getElementById("visual_style").innerHTML="The Current Playing style is Jhatpal" ;
-    if(x==3)document.getElementById("visual_style").innerHTML="The Current Playing style is Kartaal" ;
-    loop(); 
+    else if(x==1)document.getElementById("visual_style").innerHTML="The Current Playing style is Kherwa" ;
+    else if(x==2)document.getElementById("visual_style").innerHTML="The Current Playing style is Jhatpal" ;
+    else if(x==3)document.getElementById("visual_style").innerHTML="The Current Playing style is Kartaal" ;
+    if(playlist.length==0){
+        addcycle();
+        bpm = bpm+bpm_velocity;
+    }
+    
+    beat=playlist[0];
+    k=playlistt[0];
+    playlist.shift();
+    playlistt.shift();
+    bpmcurr=bpm*k;
+    temp+=1/k;
+    if(Number.isInteger(temp)){
+        document.getElementById("visualization").innerHTML="The Current Playing Beat is " + (temp) ;
+        if(temp==mx)temp=0;
+    }
+    document.getElementById("visual_bpm").innerHTML="The Current Playing Beat is " + (bpm) ;
+    clearInterval(t);
+
+    audio = new Audio();
+    audio.volume = 1.0;
+    
+    audio.loop = false;
+    audio=beat[0];
+    if(beat[0]==blnk)audio.volume=0.0;
+    console.log(k);
+    audio.play();
+    console.log(playlist);
+    
+    loop();
+
+  
      
 }
 
 
 function loop(){
-    var j = i+1;
-    document.getElementById("visualization").innerHTML="The Current Playing Beat is " + j ;
-    document.getElementById("visual_bpm").innerHTML="The Current BPM is " + bpm ;
-    if(++i<playlist.length){
-        i=i;
-    }
-    else{
-        i=0;
-        bpm = bpm + bpm_velocity; 
-        document.getElementById("bpm").innerHTML = bpm +" BPM";
-        console.log(bpm);
-    }
-    console.log(i);
-     t = setInterval(playing,60*1000/bpm -(max[x][i]-max[x][j-1])*1000);
+    document.getElementById("bpm").innerHTML= bpm + " BPM";
+    console.log(bpm);
+    if(playlist.length>1) t = setInterval(playing,60.0*1000/(bpmcurr)-(beat[0].duration-1000*dict[beat[0]])-1000*dict[playlist[1][0]]);
+    else t = setInterval(playing,60.0*1000/(bpmcurr)-(beat[0].duration-1000*dict[beat[0]])-1000*dict[beatCycle[x][0][0]]);
+
 }
 
 function reset(){
@@ -154,11 +272,22 @@ function reset(){
     bpm_velocity =0;
     flag=0;
     document.getElementById("start").value ="Start";
+    document.getElementById("tap").value ="Transition ";
     i=0;
+    taped=0;
+    tapbut=0;
+    tapcyc=0;
     clearInterval(t);
     document.getElementById("visualization").innerHTML=" "  ;
     document.getElementById("visual_style").innerHTML=" "  ;
     document.getElementById("visual_bpm").innerHTML=" "  ;
     document.getElementById("bpm").innerHTML= bpm + " BPM";
     document.getElementById("bpm_velo").value= bpm_velocity;
+
+}
+
+function tap(){
+    //document.getElementById("tap").value ="hello ";
+    if(tapbut<2)tapbut++;
+    if(tapbut==2)document.getElementById("tap").value =tapcyc;
 }
