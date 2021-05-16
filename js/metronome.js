@@ -1,5 +1,6 @@
 var dha = new Audio('assets/audio/dha.wav');
 var dha0 = new Audio('assets/audio/dha.wav');
+var dhakar = new Audio('assets/audio/dhakar.wav');
 var dha2 = new Audio('assets/audio/dha2.wav');
 var dhi = new Audio('assets/audio/dhi.wav');
 var dhi0 = new Audio('assets/audio/dhi.wav');
@@ -42,7 +43,7 @@ var tran3bt= [1,1,1,1,1,1,1,1,1,2,2];
 var tran3c=[[dha],[dha0],[tin],[tin0],[dha],[dha0],[dhi],[na],[ti],[na],[dhi],[dhi0],[tin],[tin0]];
 var tran3ct= [2,2,2,2,2,2,1,1,1,1,1,1,2,2];
 
-var beatCycle4 = [[tin],[tin0],[dha],[blnk]];
+var beatCycle4 = [[tin],[tin0],[dhakar],[blnk]];
 var beatCycle4t = [1,1,1,1];
 var tran4a=[[dha],[dha0],[tin],[tin0],[dha],[dha0],[blnk]];
 var tran4at= [2,2,2,2,2,2,1];
@@ -126,12 +127,14 @@ dict[tin]=0.016;
 dict[tin0]=0.016;
 dict[dha]=0.027;
 dict[dha0]=0.027;
+dict[dhakar]=0.027;
 dict[na]=0.04;
 dict[dhi]=0.048;
 dict[dhi0]=0.048;
 dict[ge]=0.041;
 dict[ka]=0.033;
 dict[blnk]=0.014;
+
 function bpmvel(){
     bpm_velocity = parseInt(document.getElementById("bpm_velo").value);
 }
@@ -183,14 +186,16 @@ function toggle(){
 function addcycle(){
 
     k=0;
+    bpm = bpm+bpm_velocity;
     mx=cnt[x];
     if(tapbut==1){
         tapcyc++;
     }
-
+    console.log("tp"+ tp);
     if(tapbut==2){
         tp++;
         tp=tp%tapcyc;
+        console.log("tp"+ tp);
         if(tapcyc<=1){
             playlist = playlist.concat(tranc[x]);
             playlistt= playlistt.concat(tranct[x]);
@@ -210,6 +215,7 @@ function addcycle(){
     }
 
     
+    console.log(tp);
     
     playlist = playlist.concat(beatCycle[x]);
     playlistt=playlistt.concat(beatCyclet[x]);
@@ -226,7 +232,7 @@ function playing(){
     else if(x==3)document.getElementById("visual_style").innerHTML="The Current Playing style is Kartaal" ;
     if(playlist.length==0){
         addcycle();
-        bpm = bpm+bpm_velocity;
+        
     }
     
     beat=playlist[0];
@@ -287,7 +293,7 @@ function reset(){
 }
 
 function tap(){
-    //document.getElementById("tap").value ="hello ";
     if(tapbut<2)tapbut++;
     if(tapbut==2)document.getElementById("tap").value =tapcyc;
+
 }
