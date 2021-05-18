@@ -1,56 +1,29 @@
 var dha = new Audio('assets/audio/dha.wav');
-var dha0 = new Audio('assets/audio/dha.wav');
-var dhakar = new Audio('assets/audio/dhakar.wav');
-var dha2 = new Audio('assets/audio/dha2.wav');
-var dhi = new Audio('assets/audio/dhi.wav');
-var dhi0 = new Audio('assets/audio/dhi.wav');
-var dhin = new Audio('assets/audio/dhin.wav');
-var ge = new Audio('assets/audio/ge.wav');
-var ka = new Audio('assets/audio/ka.wav');
-var na = new Audio('assets/audio/na.wav');
-var ti = new Audio('assets/audio/ti.wav');
 var tin = new Audio('assets/audio/tin.wav');
-var tin0 = new Audio('assets/audio/tin.wav');
-var blnk =new Audio('assets/audio/dhin.wav');
-
+var blnk = new Audio('assets/audio/tin.wav');
+var test = new Audio('assets/audio/test.wav');
+var test1 = new Audio('assets/audio/1.wav');
+var test2 = new Audio('assets/audio/2.wav');
 //console.log(beat.length);
-var transcyc=[[tin,tin0],[dha,dha0],[tin,tin0],[dha,dha0]];
+var transcyc=[];
 
-var beatCycle1 = [[ti],[tin],[tin0],[na],[dhi],[na],[dhi],[na]];
-var beatCycle1t = [1,2,2,1,1,1,1,1]; //This array signifies the relative rate at which beats will need to play
-var tran1a=[[dha],[dha0],[tin],[tin],[dha],[dha0],[dhi],[na],[dhi],[na]];
-var tran1at= [2,2,2,2,2,2,1,1,1,1];
-var tran1b=[[ti],[tin],[tin],[na],[dhi],[na],[dhi],[tin],[tin]];
-var tran1bt= [1,2,2,1,1,1,1,2,2];
-var tran1c=[[dha],[dha0],[tin],[tin0],[dha],[dha0],[dhi],[na],[dhi],[tin],[tin0]];
-var tran1ct= [2,2,2,2,2,2,1,1,1,2,2];
 
-var beatCycle2 = [[dha],[ge],[na],[ti],[na],[ka],[dha],[na]];
-var beatCycle2t = [1,1,1,1,1,1,1,1];
-var tran2a=[[dha],[dha0],[tin],[tin0],[dha],[dha0],[ti],[na],[ka],[dha],[na]];
-var tran2at= [2,2,2,2,2,2,1,1,1,1,1];
-var tran2b=[[dha],[ge],[na],[ti],[na],[ka],[dha],[tin],[tin0]];
-var tran2bt= [1,1,1,1,1,1,1,2,2];
-var tran2c=[[dha],[dha0],[tin],[tin0],[dha],[dha0],[ti],[na],[ka],[dha],[tin],[tin0]];
-var tran2ct= [2,2,2,2,2,2,1,1,1,1,2,2];
-
-var beatCycle3 = [[dhi],[na],[dhi],[dhi0],[na],[ti],[na],[dhi],[dhi0],[na]];
-var beatCycle3t = [1,1,1,1,1,1,1,1,1,1];
-var tran3a=[[dha],[dha0],[tin],[tin0],[dha],[dha0],[dhi],[na],[ti],[na],[dhi],[dhi0],[na]];
-var tran3at= [2,2,2,2,2,2,1,1,1,1,1,1,1];
-var tran3b=[[dhi],[na],[dhi],[dhi0],[na],[ti],[na],[dhi],[dhi0],[tin],[tin0]];
-var tran3bt= [1,1,1,1,1,1,1,1,1,2,2];
-var tran3c=[[dha],[dha0],[tin],[tin0],[dha],[dha0],[dhi],[na],[ti],[na],[dhi],[dhi0],[tin],[tin0]];
-var tran3ct= [2,2,2,2,2,2,1,1,1,1,1,1,2,2];
-
-var beatCycle4 = [[tin],[tin0],[dhakar],[blnk]];
-var beatCycle4t = [1,1,1,1];
-var tran4a=[[dha],[dha0],[tin],[tin0],[dha],[dha0],[blnk]];
-var tran4at= [2,2,2,2,2,2,1];
-var tran4b=[[tin],[tin0],[dha],[tin],[tin]];
-var tran4bt= [1,1,1,2,2];
-var tran4c=[[dha],[dha0],[tin],[tin0],[dha],[dha0],[tin],[tin]];
-var tran4ct= [2,2,2,2,2,2,2,2];
+var beatCycle1 = [[tin],[tin],[dha],[blnk]];
+var beatCycle1t = [1,1,1,1];
+var tran1a=[];
+var tran1at= [];
+var tran1b=[];
+var tran1bt= [];
+var tran1c=[];
+var tran1ct= [];
+var beatCycle2 = [[tin],[dha],[blnk]];
+var beatCycle2t = [1,1,1];
+var tran2a=[];
+var tran2at= [];
+var tran2b=[];
+var tran2bt= [];
+var tran2c=[];
+var tran2ct= [];
 
 var trana=[];
 var tranat=[];
@@ -61,48 +34,39 @@ var tranct=[];
 
 trana.push(tran1a);
 trana.push(tran2a);
-trana.push(tran3a);
-trana.push(tran4a);
+/*trana.push(tran3a);
+trana.push(tran4a);*/
 tranat.push(tran1at);
 tranat.push(tran2at);
-tranat.push(tran3at);
-tranat.push(tran4at);
+/*tranat.push(tran3at);
+tranat.push(tran4at);*/
 
 tranb.push(tran1b);
 tranb.push(tran2b);
-tranb.push(tran3b);
-tranb.push(tran4b);
+
 tranbt.push(tran1bt);
 tranbt.push(tran2bt);
-tranbt.push(tran3bt);
-tranbt.push(tran4bt);
+
 
 tranc.push(tran1c);
 tranc.push(tran2c);
-tranc.push(tran3c);
-tranc.push(tran4c);
+
 tranct.push(tran1ct);
 tranct.push(tran2ct);
-tranct.push(tran3ct);
-tranct.push(tran4ct);
 
 
-var cnt=[7,8,10,4];
+var cnt=[4,3];
 var mx=7;
 var temp=0;
 
 var beatCycle = [];
 beatCycle.push(beatCycle1);
 beatCycle.push(beatCycle2);
-beatCycle.push(beatCycle3);
-beatCycle.push(beatCycle4);
-console.log(beatCycle1);
+console.log(beatCycle);
 
 var beatCyclet=[];
 beatCyclet.push(beatCycle1t);
 beatCyclet.push(beatCycle2t);
-beatCyclet.push(beatCycle3t);
-beatCyclet.push(beatCycle4t);
 
 
 var x=0;
@@ -122,18 +86,11 @@ var beat=[];
 var i =0;
 
 var dict={}
-dict[ti]=0.026;
-dict[tin]=0.016;
-dict[tin0]=0.016;
-dict[dha]=0.027;
-dict[dha0]=0.027;
-dict[dhakar]=0.027;
-dict[na]=0.04;
-dict[dhi]=0.048;
-dict[dhi0]=0.048;
-dict[ge]=0.041;
-dict[ka]=0.033;
-dict[blnk]=0.014;
+
+dict[tin]=0.06;
+dict[dha]=0.023;
+dict[blnk]=0.023;
+dict[test]=0.023;
 
 function bpmvel(){
     bpm_velocity = parseInt(document.getElementById("bpm_velo").value);
@@ -156,10 +113,6 @@ function plus1(){
 function stylechange(){
     x=document.getElementById("style").value;
     console.log(x);
-    // i=0;
-    // if(flag==1){
-    //     playing();
-    // }
 }
 
 function toggle(){
@@ -174,6 +127,8 @@ function toggle(){
         flag =0;
         document.getElementById("start").value ="Start";
         i=0;
+        audio.pause();
+        audio.currentTime = 0;
         clearInterval(t);
         document.getElementById("visualization").innerHTML=" "  ;
         document.getElementById("visual_style").innerHTML=" "  ;
@@ -181,8 +136,8 @@ function toggle(){
     }
 
 }
-
-
+audio = new Audio();
+var allAudios ;
 function addcycle(){
 
     k=0;
@@ -219,22 +174,29 @@ function addcycle(){
     
     playlist = playlist.concat(beatCycle[x]);
     playlistt=playlistt.concat(beatCyclet[x]);
+    allAudios = document.querySelectorAll('audio');
+    stopAllAudio();
     
     
     
 }
+function stopAllAudio(){
+	allAudios.forEach(function(audio){
+        audio.pause();
+        audio.currentTime=0;
+	});
+}
 var k=1;
 function playing(){
     
-    if(x==0)document.getElementById("visual_style").innerHTML="The Current Playing style is Rupak" ;
-    else if(x==1)document.getElementById("visual_style").innerHTML="The Current Playing style is Kherwa" ;
-    else if(x==2)document.getElementById("visual_style").innerHTML="The Current Playing style is Jhatpal" ;
-    else if(x==3)document.getElementById("visual_style").innerHTML="The Current Playing style is Kartaal" ;
+    if(x==0)document.getElementById("visual_style").innerHTML="The Current Playing style is Kartaal(4)" ;
+    else if(x==1)document.getElementById("visual_style").innerHTML="The Current Playing style is Kartaal(3)" ;
     if(playlist.length==0){
         addcycle();
         
     }
-    
+    audio.pause();
+    audio.currentTime = 0;
     beat=playlist[0];
     k=playlistt[0];
     playlist.shift();
@@ -270,7 +232,7 @@ function loop(){
     console.log(bpm);
     if(playlist.length>1) t = setInterval(playing,60.0*1000/(bpmcurr)-(beat[0].duration-1000*dict[beat[0]])-1000*dict[playlist[1][0]]);
     else t = setInterval(playing,60.0*1000/(bpmcurr)-(beat[0].duration-1000*dict[beat[0]])-1000*dict[beatCycle[x][0][0]]);
-
+    console.log(60.0*1000/(bpmcurr)-(beat[0].duration-1000*dict[beat[0]])-1000*dict[beatCycle[x][0][0]]);
 }
 
 function reset(){
@@ -283,6 +245,8 @@ function reset(){
     taped=0;
     tapbut=0;
     tapcyc=0;
+    audio.pause();
+    audio.currentTime = 0;
     clearInterval(t);
     document.getElementById("visualization").innerHTML=" "  ;
     document.getElementById("visual_style").innerHTML=" "  ;
