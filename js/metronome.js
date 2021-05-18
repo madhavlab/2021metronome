@@ -1,9 +1,7 @@
 var dha = new Audio('assets/audio/dha.wav');
 var tin = new Audio('assets/audio/tin.wav');
 var blnk = new Audio('assets/audio/tin.wav');
-var test = new Audio('assets/audio/test.wav');
-var test1 = new Audio('assets/audio/1.wav');
-var test2 = new Audio('assets/audio/2.wav');
+
 //console.log(beat.length);
 var transcyc=[];
 
@@ -183,7 +181,7 @@ function addcycle(){
 function stopAllAudio(){
 	allAudios.forEach(function(audio){
         audio.pause();
-        audio.currentTime=0;
+        audio.currentTime=0
 	});
 }
 var k=1;
