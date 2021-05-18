@@ -88,7 +88,6 @@ var dict={}
 dict[tin]=0.06;
 dict[dha]=0.023;
 dict[blnk]=0.023;
-dict[test]=0.023;
 
 function bpmvel(){
     bpm_velocity = parseInt(document.getElementById("bpm_velo").value);
