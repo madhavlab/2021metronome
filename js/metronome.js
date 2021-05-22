@@ -280,7 +280,13 @@ function reset(){
     bpm_velocity =0;
     flag=0;
     document.getElementById("start").value ="Start";
-    document.getElementById("tap").value ="Transition ";
+    if(x!=2){
+        document.getElementById("tap").value ="No Transition";
+    }
+    else{
+        document.getElementById("tap").value ="Transition";
+    }
+    
     i=0;
     taped=0;
     tapbut=0;
