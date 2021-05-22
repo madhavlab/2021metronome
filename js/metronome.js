@@ -3,18 +3,30 @@ var tin = new Audio('assets/audio/tin.wav');
 var tin_0 = new Audio('assets/audio/tin.wav');
 var dha_m = new Audio('assets/audio/dha_m.wav');
 var dha_m0 = new Audio('assets/audio/dha_m.wav');
+var dha_m1 = new Audio('assets/audio/dha_m.wav');
 var ghe_hard = new Audio('assets/audio/ghe_hard.wav');
 var ghe_soft = new Audio('assets/audio/ghe_soft.wav');
 var ghe_soft0 = new Audio('assets/audio/ghe_soft.wav');
 var khi = new Audio('assets/audio/khi.wav');
 var khi0 = new Audio('assets/audio/khi.wav');
+var khi1 = new Audio('assets/audio/khi.wav');
 var na = new Audio('assets/audio/na.wav');
+var na0 = new Audio('assets/audio/na.wav');
+var na1 = new Audio('assets/audio/na.wav');
 var re = new Audio('assets/audio/re.wav');
 var re0 = new Audio('assets/audio/re.wav');
+var re1 = new Audio('assets/audio/re.wav');
+var re2 = new Audio('assets/audio/re.wav');
+var re3 = new Audio('assets/audio/re.wav');
 var ta = new Audio('assets/audio/ta.wav');
+var ta0 = new Audio('assets/audio/ta.wav');
+var ta1 = new Audio('assets/audio/ta.wav');
 var te = new Audio('assets/audio/te.wav');
 var te0 = new Audio('assets/audio/te.wav');
 var te1 = new Audio('assets/audio/te.wav');
+var te2 = new Audio('assets/audio/te.wav');
+var te3 = new Audio('assets/audio/te.wav');
+var te4 = new Audio('assets/audio/te.wav');
 var pa = new Audio('assets/audio/na.wav');
 var blnk = new Audio('assets/audio/blnk.wav');
 var blnk0 = new Audio('assets/audio/blnk.wav');
@@ -29,9 +41,9 @@ var beatCycle1t = [1,1,1,1];
 var beatCycle2 = [[tin],[dha_k],[blnk]];
 var beatCycle2t = [1,1,1];
 
-var beatCycle3 = [[khi],[blnk],[khi0],[na],[dha_m],[ghe_soft],[dha_m0],[ghe_soft0],[dha_m],[ghe_hard],[blnk],[blnk0],[na],[te],[te0],[re],[te1],[re0],[na]];
+var beatCycle3 = [[khi],[blnk],[khi0],[na],[dha_m],[ghe_soft],[dha_m0],[ghe_soft0],[dha_m1],[ghe_hard],[blnk],[blnk0],[na0],[te],[te0],[re],[te1],[re0],[na1]];
 var beatCycle3t = [1,2,2,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,1];
-var tran3=[[te],[re],[khi],[ta],[dha_m],[te],[re],[khi],[ta],[dha_m],[te],[re],[khi],[ta],[dha_m],[blnk],[blnk0],[na],[te],[te0],[re],[te1],[re0],[na]];
+var tran3=[[te],[re],[khi],[ta],[dha_m],[te0],[re0],[khi0],[ta0],[dha_m0],[te1],[re1],[khi1],[ta1],[dha_m1],[blnk],[blnk0],[na],[te2],[te3],[re2],[te4],[re3],[na0]];
 var tran3a= [2,2,2,2,1,2,2,2,2,1,2,2,2,2,1,1,1,1,1,2,2,2,2,1];
 
 
@@ -88,22 +100,34 @@ var dict={}
 
 var dict={}
 dict[dha_k]=0.026757369614512472;
+dict[tin]=0.005759637188208617;
+dict[tin_0]=0.005759637188208617;
 dict[dha_m]=0.07641723356009071;
 dict[dha_m0]=0.07641723356009071;
+dict[dha_m1]=0.07641723356009071;
 dict[ghe_hard]=0.03891156462585034;
+dict[ghe_soft]=0.028820861678004534;
+dict[ghe_soft0]=0.028820861678004534;
 dict[khi]=0.014331065759637189;
 dict[khi0]=0.014331065759637189;
+dict[khi1]=0.014331065759637189;
 dict[na]=0.04793650793650794;
+dict[na0]=0.04793650793650794;
+dict[na1]=0.04793650793650794;
 dict[ta]=0.035986394557823126;
+dict[ta0]=0.035986394557823126;
+dict[ta1]=0.035986394557823126;
 dict[re]=0.030702947845804986;
 dict[re0]=0.030702947845804986;
+dict[re1]=0.030702947845804986;
+dict[re2]=0.030702947845804986;
+dict[re3]=0.030702947845804986;
 dict[te]=0.03346938775510204;
 dict[te0]=0.03346938775510204;
 dict[te1]=0.03346938775510204;
-dict[tin]=0.005759637188208617;
-dict[tin_0]=0.005759637188208617;
-dict[ghe_soft]=0.028820861678004534;
-dict[ghe_soft0]=0.028820861678004534;
+dict[te2]=0.03346938775510204;
+dict[te3]=0.03346938775510204;
+dict[te4]=0.03346938775510204;
 dict[blnk]=0.000;
 dict[blnk0]=0.000;
 dict[pa]=0.04793650793650794;
@@ -122,7 +146,7 @@ function sub1(){
 
 function plus1(){
     var element = document.getElementById("bpm");
-    if(bpm<500)bpm=bpm+1;
+    if(bpm<300)bpm=bpm+1;
     element.innerHTML = bpm + " BPM"; 
 }
 
@@ -168,6 +192,9 @@ function addcycle(){
     k=0;
     if(bpm+bpm_velocity<10){
         bpm =10;
+    }
+    else if(bpm+bpm_velocity>300){
+        bpm =300;
     }
     else{
         bpm = bpm+bpm_velocity;
