@@ -2,15 +2,22 @@ var dha_k = new Audio('assets/audio/dha_k.wav');
 var tin = new Audio('assets/audio/tin.wav');
 var tin_0 = new Audio('assets/audio/tin.wav');
 var dha_m = new Audio('assets/audio/dha_m.wav');
+var dha_m0 = new Audio('assets/audio/dha_m.wav');
 var ghe_hard = new Audio('assets/audio/ghe_hard.wav');
 var ghe_soft = new Audio('assets/audio/ghe_soft.wav');
+var ghe_soft0 = new Audio('assets/audio/ghe_soft.wav');
 var khi = new Audio('assets/audio/khi.wav');
+var khi0 = new Audio('assets/audio/khi.wav');
 var na = new Audio('assets/audio/na.wav');
 var re = new Audio('assets/audio/re.wav');
+var re0 = new Audio('assets/audio/re.wav');
 var ta = new Audio('assets/audio/ta.wav');
 var te = new Audio('assets/audio/te.wav');
+var te0 = new Audio('assets/audio/te.wav');
+var te1 = new Audio('assets/audio/te.wav');
 var pa = new Audio('assets/audio/na.wav');
-var blnk = new Audio('assets/audio/tin.wav');
+var blnk = new Audio('assets/audio/blnk.wav');
+var blnk0 = new Audio('assets/audio/blnk.wav');
 
 //console.log(beat.length);
 var transcyc=[];
@@ -22,10 +29,9 @@ var beatCycle1t = [1,1,1,1];
 var beatCycle2 = [[tin],[dha_k],[blnk]];
 var beatCycle2t = [1,1,1];
 
-
-var beatCycle3 = [[khi],[blnk],[khi],[na],[dha_m],[ghe_soft],[dha_m],[ghe_hard],[dha_m],[ghe_soft],[blnk],[blnk],[na],[te],[te],[re],[te],[re],[na]];
+var beatCycle3 = [[khi],[blnk],[khi0],[na],[dha_m],[ghe_soft],[dha_m0],[ghe_soft0],[dha_m],[ghe_hard],[blnk],[blnk0],[na],[te],[te0],[re],[te1],[re0],[na]];
 var beatCycle3t = [1,2,2,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,1];
-var tran3=[[te],[re],[khi],[ta],[dha_m],[te],[re],[khi],[ta],[dha_m],[te],[re],[khi],[ta],[dha_m],[blnk],[blnk],[na],[te],[te],[re],[te],[re],[na]];
+var tran3=[[te],[re],[khi],[ta],[dha_m],[te],[re],[khi],[ta],[dha_m],[te],[re],[khi],[ta],[dha_m],[blnk],[blnk0],[na],[te],[te0],[re],[te1],[re0],[na]];
 var tran3a= [2,2,2,2,1,2,2,2,2,1,2,2,2,2,1,1,1,1,1,2,2,2,2,1];
 
 
@@ -83,16 +89,23 @@ var dict={}
 var dict={}
 dict[dha_k]=0.026757369614512472;
 dict[dha_m]=0.07641723356009071;
+dict[dha_m0]=0.07641723356009071;
 dict[ghe_hard]=0.03891156462585034;
 dict[khi]=0.014331065759637189;
+dict[khi0]=0.014331065759637189;
 dict[na]=0.04793650793650794;
 dict[ta]=0.035986394557823126;
 dict[re]=0.030702947845804986;
+dict[re0]=0.030702947845804986;
 dict[te]=0.03346938775510204;
+dict[te0]=0.03346938775510204;
+dict[te1]=0.03346938775510204;
 dict[tin]=0.005759637188208617;
 dict[tin_0]=0.005759637188208617;
 dict[ghe_soft]=0.028820861678004534;
-dict[blnk]=0.005759637188208617;
+dict[ghe_soft0]=0.028820861678004534;
+dict[blnk]=0.000;
+dict[blnk0]=0.000;
 dict[pa]=0.04793650793650794;
 
 function bpmvel(){
@@ -235,7 +248,7 @@ function playing(){
     
     audio[i].loop = false;
     audio[i]=beat[0];
-    if(beat[0]==blnk)audio[i].volume=0.0;
+    if(beat[0]==blnk || beat[0]==blnk0)audio[i].volume=0.0;
     console.log(k);
     audio[i].play();
     console.log(playlist);
@@ -251,7 +264,13 @@ function playing(){
 function loop(){
     document.getElementById("bpm").innerHTML= bpm + " BPM";
     console.log(bpm);
-    if(playlist.length>1) t = setInterval(playing,60.0*1000/(bpmcurr)-1000*dict[beat[0]]+1000*dict[playlist[1][0]]);
+    if(playlist.length>0){
+        console.log(beat[0]);
+        console.log(playlist[0][0]);
+    }
+
+    
+    if(playlist.length>0) t = setInterval(playing,60.0*1000/(bpmcurr)+1000*dict[beat[0]]-1000*dict[playlist[0][0]]);
     else t = setInterval(playing,60.0*1000/(bpmcurr)-1000*dict[beat[0]]+1000*dict[beatCycle[x][0][0]]);
     console.log(t);
 }
