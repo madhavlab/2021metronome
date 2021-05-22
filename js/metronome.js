@@ -115,7 +115,7 @@ function bpmvel(){
 
 function sub1(){
     var element = document.getElementById("bpm");
-    if(bpm>20)bpm=bpm-1;
+    if(bpm>10)bpm=bpm-1;
     element.innerHTML = bpm + " BPM";  
     
 }
@@ -166,7 +166,13 @@ audio =[];
 function addcycle(){
 
     k=0;
-    bpm = bpm+bpm_velocity;
+    if(bpm+bpm_velocity<10){
+        bpm =10;
+    }
+    else{
+        bpm = bpm+bpm_velocity;
+    }
+    
     mx=cnt[x];
     var i =0;
     if(tapbut==1){
