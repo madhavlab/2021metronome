@@ -186,7 +186,8 @@ function toggle(){
 
 }
 audio =[];
-
+var flag1=0;
+var temp_bpm =0;
 function addcycle(){
 
     k=0;
@@ -200,7 +201,17 @@ function addcycle(){
         bpm = bpm+bpm_velocity;
     }
     
+    if(flag1==1){
+        bpm = temp_bpm;
+        document.getElementById("style").value=x;
+        flag1=0;
+    }
     mx=cnt[x];
+    
+    if(x==0)document.getElementById("visual_style").innerHTML="The Current Playing style is Kartaal (4)" ;
+    else if(x==1)document.getElementById("visual_style").innerHTML="The Current Playing style is Kartaal (3)" ;
+    else if(x==2)document.getElementById("visual_style").innerHTML="The Current Playing style is Mridanga (16)" ;
+    else if(x==3)document.getElementById("visual_style").innerHTML="The Current Playing style is Mridanga  (8)" ;
     var i =0;
     if(tapbut==1){
         tapcyc++;
@@ -221,11 +232,7 @@ function addcycle(){
             console.log(playlist);
             return;
         }
-        /*if(tp==tapcyc-1){
-            playlist = playlist.concat(tranb[x]);
-            playlistt= playlistt.concat(tranbt[x]);
-            return;
-        }*/
+        
         
     }
 
@@ -252,10 +259,7 @@ var k=1;
 
 function playing(){
     
-    if(x==0)document.getElementById("visual_style").innerHTML="The Current Playing style is Kartaal (4)" ;
-    else if(x==1)document.getElementById("visual_style").innerHTML="The Current Playing style is Kartaal (3)" ;
-    else if(x==2)document.getElementById("visual_style").innerHTML="The Current Playing style is Mridanga (16)" ;
-    else if(x==2)document.getElementById("visual_style").innerHTML="The Current Playing style is Kartaal (8)" ;
+    
     if(playlist.length==0){
         addcycle();
         
@@ -309,10 +313,8 @@ function loop(){
 }
 
 function reset(){
-    bpm =100;
-    bpm_velocity =0;
-    flag=0;
-    document.getElementById("start").value ="Start";
+    
+    
     if(x!=2){
         document.getElementById("tap").value ="No Transition";
     }
@@ -320,19 +322,14 @@ function reset(){
         document.getElementById("tap").value ="Transition";
     }
     
-    i=0;
+    
     taped=0;
     tapbut=0;
     tapcyc=0;
-    stopAllAudio();
-    clearInterval(t);
-    document.getElementById("visualization").innerHTML=" "  ;
-    document.getElementById("visual_style").innerHTML=" "  ;
-    document.getElementById("visual_bpm").innerHTML=" "  ;
-    document.getElementById("bpm").innerHTML= bpm + " BPM";
-    document.getElementById("bpm_velo").value= bpm_velocity;
+    
 
 }
+
 
 function tap(){
     if(x==2){
@@ -345,3 +342,62 @@ function tap(){
     
 
 }
+
+function fav1(){
+    temp_bpm = parseInt(document.getElementById("fav1").value);
+    x = document.getElementById("fav_style1").value;
+    if(x==2&&tapbut==0){
+        document.getElementById("tap").value ="Transition";
+    }
+    else if(x==2&&tapbut!=0){
+        if(tapbut==2)document.getElementById("tap").value =tapcyc;
+    }
+    else{
+        document.getElementById("tap").value ="No Transition";
+    }
+    flag1 =1
+}
+function fav2(){
+    temp_bpm = parseInt(document.getElementById("fav2").value);
+    x = document.getElementById("fav_style2").value;
+    if(x==2&&tapbut==0){
+        document.getElementById("tap").value ="Transition";
+    }
+    else if(x==2&&tapbut!=0){
+        document.getElementById("tap").value =tapcyc;
+    }
+    else{
+        document.getElementById("tap").value ="No Transition";
+    }
+    flag1=1;
+
+}
+function fav3(){
+    temp_bpm = parseInt(document.getElementById("fav3").value);
+    x = document.getElementById("fav_style3").value;
+    if(x==2&&tapbut==0){
+        document.getElementById("tap").value ="Transition";
+    }
+    else if(x==2&&tapbut!=0){
+        document.getElementById("tap").value =tapcyc;
+    }
+    else{
+        document.getElementById("tap").value ="No Transition";
+    }
+    flag1=1;
+}
+function fav4(){
+    temp_bpm = parseInt(document.getElementById("fav4").value);
+    x = document.getElementById("fav_style4").value;
+    if(x==2&&tapbut==0){
+        document.getElementById("tap").value ="Transition";
+    }
+    else if(x==2&&tapbut!=0){
+        document.getElementById("tap").value =tapcyc;
+    }
+    else{
+        document.getElementById("tap").value ="No Transition";
+    }
+    flag1=1;
+}
+
