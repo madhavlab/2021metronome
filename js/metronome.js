@@ -203,6 +203,7 @@ function addcycle(){
     
     if(flag1==1){
         bpm = temp_bpm;
+        console.log("temp_bpm" + temp_bpm);
         document.getElementById("style").value=x;
         flag1=0;
     }
@@ -342,10 +343,33 @@ function tap(){
     
 
 }
+ var nooffav =0;
+ var fav_style ="";
+function addtofav(){
+    nooffav++;
+    var new_element = document.createElement("div");
+    new_element.setAttribute('id',"fav"+nooffav)
+    new_element.setAttribute('class',"col-12")
+    new_element.setAttribute('style',"padding-top:10px;")
+    console.log(x);
+    if(x==0)fav_style ="Kartaal (4)";
+    else if(x==1)fav_style ="Kartaal (3)";
+    else if(x==2)fav_style ="Mridanga (16)";
+    else if(x==3)fav_style ="Mridanga (8)";
+    new_element.innerHTML =  "<div class=container><div class=row><div class=col-5>"+fav_style+"</div><div class=col-2>"+ bpm +"</div><div class=col-3><button onclick= fav_play("+ bpm +','+ x +") style=color:#AC9B9B;background:rgba(2,15,40,0.64);border-radius:15px;> Play </button></div><div class=col-2><button onclick= fav_delete(fav"+nooffav+") style =color:#AC9B9B;background:rgba(2,15,40,0.64);border-radius:15px;> Delete </button></div></div></div>" ;
+    document.getElementById("fav").appendChild(new_element);
+    
+}
 
-function fav1(){
-    temp_bpm = parseInt(document.getElementById("fav1").value);
-    x = document.getElementById("fav_style1").value;
+
+function fav_delete(fav_number){
+    fav_number.remove();
+}
+function fav_play(fav_bpm,temp_style ){
+    
+    temp_bpm = fav_bpm;
+    
+    x = temp_style;
     if(x==2&&tapbut==0){
         document.getElementById("tap").value ="Transition";
     }
@@ -356,48 +380,7 @@ function fav1(){
         document.getElementById("tap").value ="No Transition";
     }
     flag1 =1
-}
-function fav2(){
-    temp_bpm = parseInt(document.getElementById("fav2").value);
-    x = document.getElementById("fav_style2").value;
-    if(x==2&&tapbut==0){
-        document.getElementById("tap").value ="Transition";
-    }
-    else if(x==2&&tapbut!=0){
-        document.getElementById("tap").value =tapcyc;
-    }
-    else{
-        document.getElementById("tap").value ="No Transition";
-    }
-    flag1=1;
+} 
 
-}
-function fav3(){
-    temp_bpm = parseInt(document.getElementById("fav3").value);
-    x = document.getElementById("fav_style3").value;
-    if(x==2&&tapbut==0){
-        document.getElementById("tap").value ="Transition";
-    }
-    else if(x==2&&tapbut!=0){
-        document.getElementById("tap").value =tapcyc;
-    }
-    else{
-        document.getElementById("tap").value ="No Transition";
-    }
-    flag1=1;
-}
-function fav4(){
-    temp_bpm = parseInt(document.getElementById("fav4").value);
-    x = document.getElementById("fav_style4").value;
-    if(x==2&&tapbut==0){
-        document.getElementById("tap").value ="Transition";
-    }
-    else if(x==2&&tapbut!=0){
-        document.getElementById("tap").value =tapcyc;
-    }
-    else{
-        document.getElementById("tap").value ="No Transition";
-    }
-    flag1=1;
-}
+
 

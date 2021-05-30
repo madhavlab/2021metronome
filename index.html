@@ -6,16 +6,15 @@
     <title>Metronome</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel='stylesheet' href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="js/metronome.js"></script>
+   
 </head>
 
 <body>
-    
-
-
+   
 <div class="container" style="padding-top :50px">
     <div class="row">
         <div class="col-xl ">
@@ -49,11 +48,23 @@
                 <input id="bpm_velo" class='form-control' type="number" value='0'
                 min='0' max='50' onchange="bpmvel()">
             </div>
-           
-            <input id="start" class="form-control btn btn-secondary"
+           <div class="container">
+               <div class="row">
+                <div class='col-sm-4'style="padding-top:20px;">
+                    <input id="start" class="form-control btn btn-secondary"
                    type="button" value="Start" onclick='toggle()'style ="color: #AC9B9B;background: rgba(2, 15, 40, 0.64);
                    border-radius: 15px;font-weight: 500;
 font-size: 32px;"/>
+                </div>
+                <div class='col-sm-8'style="padding-top:20px;">
+                    <input id="addtofav" class="form-control btn btn-secondary"
+                   type="button" value="Add to Favourites" onclick='addtofav()'style ="color: #AC9B9B;background: rgba(2, 15, 40, 0.64);
+                   border-radius: 15px;font-weight: 500;
+font-size: 32px;"/>
+                </div>
+               </div>
+           </div>
+            
                 
             <div class='container' >
                 <div class='row'>
@@ -76,89 +87,13 @@ font-size: 32px;"/>
             
         </div>
         <div class="col-xl pad">
-            <div class="container-fluid">
-                <div class ="fonts2" style="font-family: Poppins;font-style: normal;font-weight: normal;line-height: 108px;color: white;display: flex;
-            justify-content: center;
-            align-items: center;">Play your favourites </div>
-                <div class="row">
-                    <div class ="col-5">
-                        <div class="form-group" style="display: flex;justify-content: center;align-items: center;">
-                            <select id="fav_style1" class="form-control" > 
-                                <option value='0'> Kartaal (4)</option>
-                                <option value='1'> Kartaal (3)</option>
-                                <option value='2'> Mridanga (16)</option>
-                                <option value='3'> Mridanga (8)</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class ="col-3">
-                        <input id="fav1" class='form-control' type="number" value='10' min='10' max='300' >
-                    </div>
-                    <div class ="col-4">
-                        <input  class="form-control btn btn-secondary" onclick="fav1()"
-                   type="button" value="Play Next" style ="color: #AC9B9B;background: rgba(2, 15, 40, 0.64);
-                   border-radius: 15px;"/>
-                    </div>
+            <div class="container">
+                <div class ="fonts2" style="font-family: Poppins;font-style: normal;font-weight: normal;line-height: 108px;color: white;display: flex; justify-content: center;align-items: center;">
+                    Play your favourites 
                 </div>
-                <div class="row">
-                    <div class ="col-5">
-                        <div class="form-group" style="display: flex;justify-content: center;align-items: center;">
-                            <select id="fav_style2" class="form-control" > 
-                                <option value='0'> Kartaal (4)</option>
-                                <option value='1'> Kartaal (3)</option>
-                                <option value='2'> Mridanga (16)</option>
-                                <option value='3'> Mridanga (8)</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class ="col-3">
-                        <input id="fav2" class='form-control' type="number" value='10' min='10' max='300' >
-                    </div>
-                    <div class ="col-4">
-                        <input class="form-control btn btn-secondary"
-                   type="button" value="Play Next" onclick="fav2()" style ="color: #AC9B9B;background: rgba(2, 15, 40, 0.64);
-                   border-radius: 15px;"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class ="col-5">
-                        <div class="form-group" style="display: flex;justify-content: center;align-items: center;">
-                            <select id="fav_style3" class="form-control" > 
-                                <option value='0'> Kartaal (4)</option>
-                                <option value='1'> Kartaal (3)</option>
-                                <option value='2'> Mridanga (16)</option>
-                                <option value='3'> Mridanga (8)</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class ="col-3">
-                        <input id="fav3" class='form-control' type="number" value='10' min='10' max='300' >
-                    </div>
-                    <div class ="col-4">
-                        <input onclick="fav3()" class="form-control btn btn-secondary"
-                   type="button" value="Play Next" style ="color: #AC9B9B;background: rgba(2, 15, 40, 0.64);
-                   border-radius: 15px;"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class ="col-5">
-                        <div class="form-group" style="display: flex;justify-content: center;align-items: center;">
-                            <select id="fav_style4" class="form-control" > 
-                                <option value='0'> Kartaal (4)</option>
-                                <option value='1'> Kartaal (3)</option>
-                                <option value='2'> Mridanga (16)</option>
-                                <option value='3'> Mridanga (8)</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class ="col-3">
-                        <input id="fav4" class='form-control' type="number" value='10' min='10' max='300' >
-                    </div>
-                    <div class ="col-4">
-                        <input class="form-control btn btn-secondary"
-                   type="button" onclick="fav4()" value="Play Next" style ="color: #AC9B9B;background: rgba(2, 15, 40, 0.64);
-                   border-radius: 15px;"/>
-                    </div>
+                <div class="row" id="fav">
+                
+                
                 </div>
             </div>
            
@@ -200,7 +135,6 @@ font-size: 32px;"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-
 
 
 
